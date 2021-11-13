@@ -16,3 +16,12 @@ export default {
   }
 }
 </script>
+
+<!--<style>-->
+<!--body {-->
+<!--  background-image: url('../assets/background.png');-->
+<!--  background-repeat: no-repeat;-->
+<!--  background-attachment: fixed;-->
+<!--  background-size: cover;-->
+<!--}-->
+<!--</style>-->
