@@ -1,3 +1,5 @@
+[![CI](https://github.com/byFlutter/Pokemon-Team-Tool-Frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/byFlutter/Pokemon-Team-Tool-Frontend/actions/workflows/ci.yml)
+
 # pokemon-team-tool-frontend
 
 ## Project setup
