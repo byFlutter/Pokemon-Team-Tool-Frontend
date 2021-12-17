@@ -23,20 +23,21 @@ export default {
   name: 'PKMN',
   data () {
     return {
-      pkmn: [
-        {
-          id: 1,
-          name: 'Glumanda',
-          region: 'Kanto',
-          evolved: false
-        },
-        {
-          id: 286,
-          name: 'Kapilz',
-          region: 'Hoenn',
-          evolved: true
-        }
-      ]
+      // pkmn: [
+      //   {
+      //     id: 1,
+      //     name: 'Glumanda',
+      //     region: 'Kanto',
+      //     evolved: false
+      //   },
+      //   {
+      //     id: 286,
+      //     name: 'Kapilz',
+      //     region: 'Hoenn',
+      //     evolved: true
+      //   }
+      // ]
+      pkmn: []
     }
   },
   methods: {
@@ -47,6 +48,18 @@ export default {
         return require('../assets/kapilz.png')
       }
     }
+  },
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    fetch('http://localhost:8080/api/v1/allPokemon', requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(pokemon => {
+        this.pkmn.push(pokemon)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
 </script>
