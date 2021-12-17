@@ -2,24 +2,14 @@
   <h1>Welcome to PKMN</h1>
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col">
+      <div class="col" v-for="pokemon in pkmn" :key="pokemon.id">
         <div class="card h-100">
-          <img src="../assets/glumanda.png" class="card-img-top" alt="Glumanda">
+          <img :src="getArtwork(pokemon)" class="card-img-top" :alt="pokemon.name">
           <div class="card-body">
-            <h5 class="card-title">Glumanda</h5>
+            <h5 class="card-title">{{ pokemon.name }}</h5>
             <p class="card-text">
-              Glumanda trägt die ID 1 und entstammt der Region Kanto.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="../assets/kapilz.png" class="card-img-top" alt="Kapilz">
-          <div class="card-body">
-            <h5 class="card-title">Kapilz</h5>
-            <p class="card-text">
-              Kapilz trägt die ID 286 und entstammt der Region Hoenn.
+              {{ pokemon.name }} ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }} und
+              entstammt der Region {{ pokemon.region }}.
             </p>
           </div>
         </div>
@@ -30,7 +20,34 @@
 
 <script>
 export default {
-  name: 'PKMN'
+  name: 'PKMN',
+  data () {
+    return {
+      pkmn: [
+        {
+          id: 1,
+          name: 'Glumanda',
+          region: 'Kanto',
+          evolved: false
+        },
+        {
+          id: 286,
+          name: 'Kapilz',
+          region: 'Hoenn',
+          evolved: true
+        }
+      ]
+    }
+  },
+  methods: {
+    getArtwork (pokemon) {
+      if (pokemon.name === 'Glumanda') {
+        return require('../assets/glumanda.png')
+      } else if (pokemon.name === 'Kapilz') {
+        return require('../assets/kapilz.png')
+      }
+    }
+  }
 }
 </script>
 
