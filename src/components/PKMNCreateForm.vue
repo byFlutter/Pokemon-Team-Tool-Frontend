@@ -11,15 +11,15 @@
       <form class="needs-validation text-start" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" class="form-control" id="name" v-model="name" required>
         </div>
         <div class="mb-3">
           <label for="region" class="form-label">Region</label>
-          <input type="text" class="form-control" id="region" required>
+          <input type="text" class="form-control" id="region" v-model="region" required>
         </div>
 <!--        <div class="mb-3">
           <label for="gender" class="form-label">Gender</label>
-          <select id="gender" class="form-select">
+          <select id="gender" class="form-select" v-model="gender">
             <option value="" selected>Choose...</option>
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
@@ -28,14 +28,14 @@
         </div>-->
         <div class="mb-3">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="evolved">
+            <input class="form-check-input" type="checkbox" id="evolved" v-model="evolved">
             <label class="form-check-label" for="evolved">
               Entwickelt
             </label>
           </div>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit">Create</button>
+          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Create</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
       </form>
@@ -45,7 +45,23 @@
 
 <script>
 export default {
-  name: 'PKMNCreateForm'
+  name: 'PKMNCreateForm',
+  data () {
+    return {
+      name: '',
+      region: '',
+      // gender: '',
+      evolved: false
+    }
+  },
+  methods: {
+    createPokemon () {
+      console.log(this.name)
+      console.log(this.region)
+      // console.log(this.gender)
+      console.log(this.evolved)
+    }
+  }
 }
 </script>
 
