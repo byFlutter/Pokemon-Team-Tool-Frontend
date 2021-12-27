@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Create</button>
+          <button class="btn btn-primary me-3" type="submit" @click="createPokemon">Create</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
       </form>
@@ -60,6 +60,25 @@ export default {
       console.log(this.region)
       // console.log(this.gender)
       console.log(this.evolved)
+
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
+      const headers = new Headers()
+      headers.append('Content-Type', 'application/json')
+      const payload = JSON.stringify({
+        name: this.name,
+        region: this.region,
+        evolved: this.evolved
+        // , gender: this.gender
+      })
+      const requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: payload,
+        redirect: 'follow'
+      }
+      fetch(endpoint, requestOptions)
+        .then(response => response.text())
+        .catch(error => console.log('error', error))
     }
   }
 }
