@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>-->
-    <pkmn-card-list :pkmn="this.pokemon"></pkmn-card-list>
+    <pkmn-card-list :pkmn="this.pkmn"></pkmn-card-list>
   </div>
   <pkmn-create-form></pkmn-create-form>
 </template>
