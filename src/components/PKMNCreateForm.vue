@@ -1,6 +1,6 @@
 <template>
   <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas" aria-controls="#pkmn-create-offcanvas">
-    <i class="bi bi-pkmn-plus-fill"></i>
+    <i class="bi bi-pokemon-plus-fill"></i>
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
