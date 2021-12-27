@@ -4,7 +4,7 @@
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
-      <h5 id="offcanvas-label">New Pokemon</h5>
+      <h5 id="offcanvas-label">Füge ein neues Pokemon hinzu</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -12,19 +12,28 @@
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
+          <div class="invalid-feedback">
+            Bitte gib den Namen des Pokemon an.
+          </div>
         </div>
         <div class="mb-3">
           <label for="region" class="form-label">Region</label>
           <input type="text" class="form-control" id="region" v-model="region" required>
+          <div class="invalid-feedback">
+            Bitte gib die Region des Pokemon an.
+          </div>
         </div>
 <!--        <div class="mb-3">
           <label for="gender" class="form-label">Gender</label>
-          <select id="gender" class="form-select" v-model="gender">
-            <option value="" selected>Choose...</option>
+          <select id="gender" class="form-select" v-model="gender" required>
+            <option value="" selected disabled>Choose...</option>
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
             <option value="DIVERSE">Diverse</option>
           </select>
+          <div class="invalid-feedback">
+            Bitte gib das Geschlecht des Pokemon an.
+          </div>
         </div>-->
         <div class="mb-3">
           <div class="form-check">
@@ -61,24 +70,42 @@ export default {
       // console.log(this.gender)
       console.log(this.evolved)
 
-      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
-      const headers = new Headers()
-      headers.append('Content-Type', 'application/json')
-      const payload = JSON.stringify({
-        name: this.name,
-        region: this.region,
-        evolved: this.evolved
-        // , gender: this.gender
-      })
-      const requestOptions = {
-        method: 'POST',
-        headers: headers,
-        body: payload,
-        redirect: 'follow'
+      if (this.validate()) {
+        const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
+        const headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        const payload = JSON.stringify({
+          name: this.name,
+          region: this.region,
+          evolved: this.evolved
+          // , gender: this.gender
+        })
+        const requestOptions = {
+          method: 'POST',
+          headers: headers,
+          body: payload,
+          redirect: 'follow'
+        }
+        fetch(endpoint, requestOptions)
+          .then(response => response.text())
+          .catch(error => console.log('error', error))
       }
-      fetch(endpoint, requestOptions)
-        .then(response => response.text())
-        .catch(error => console.log('error', error))
+    },
+    validate () {
+      let valid = true
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+              valid = false
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+      return valid
     }
   }
 }
