@@ -1,7 +1,7 @@
 <template>
   <h1>Welcome to PKMN</h1>
   <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+<!--    <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col" v-for="pokemon in pkmn" :key="pokemon.id">
         <div class="card h-100">
           <img :src="getArtwork(pokemon)" class="card-img-top" :alt="pokemon.name">
@@ -14,13 +14,24 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
+    <pkmn-card-list :pkmn="this.pokemon"></pkmn-card-list>
   </div>
+  <pkmn-create-form></pkmn-create-form>
 </template>
 
 <script>
+import PKMNCardList from '@/components/PKMNCardList'
+import PKMNCreateForm from '@/components/PKMNCreateForm'
+
 export default {
   name: 'PKMN',
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    PKMNCardList,
+    // eslint-disable-next-line vue/no-unused-components
+    PKMNCreateForm
+  },
   data () {
     return {
       // pkmn: [
@@ -40,7 +51,7 @@ export default {
       pkmn: []
     }
   },
-  methods: {
+  /* methods: {
     getArtwork (pokemon) {
       if (pokemon.name === 'Glumanda') {
         return require('../assets/glumanda.png')
@@ -48,7 +59,7 @@ export default {
         return require('../assets/kapilz.png')
       }
     }
-  },
+  }, */
   mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
     const requestOptions = {
