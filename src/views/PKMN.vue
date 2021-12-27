@@ -15,9 +15,9 @@
         </div>
       </div>
     </div>-->
-    <pkmn-card-list :pkmn="this.pkmn"></pkmn-card-list>
+    <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>
   </div>
-  <pkmn-create-form></pkmn-create-form>
+  <p-k-m-n-create-form></p-k-m-n-create-form>
 </template>
 
 <script>
@@ -27,9 +27,7 @@ import PKMNCreateForm from '@/components/PKMNCreateForm'
 export default {
   name: 'PKMN',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     PKMNCardList,
-    // eslint-disable-next-line vue/no-unused-components
     PKMNCreateForm
   },
   data () {
