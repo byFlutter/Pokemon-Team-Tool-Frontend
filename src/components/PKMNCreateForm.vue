@@ -8,7 +8,7 @@
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <form class="text-start needs-validation" id="p-k-m-n-create-form" novalidate>
+      <form class="text-start needs-validation" id="pkmn-create-form" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
@@ -118,7 +118,7 @@ export default {
       }
     },
     validate () {
-      const form = document.getElementById('p-k-m-n-create-form')
+      const form = document.getElementById('pkmn-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
     }
