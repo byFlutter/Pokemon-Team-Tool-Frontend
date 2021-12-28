@@ -17,7 +17,7 @@
     </div>-->
     <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>
   </div>
-  <p-k-m-n-create-form></p-k-m-n-create-form>
+  <p-k-m-n-create-form> @created="addPokemon" </p-k-m-n-create-form>
 </template>
 
 <script>
@@ -47,6 +47,19 @@ export default {
       //   }
       // ]
       pkmn: []
+    }
+  },
+  methods: {
+    addPokemon (pokemonLocation) {
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + pokemonLocation
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      }
+      fetch(endpoint, requestOptions)
+        .then(response => response.json())
+        .then(pokemon => this.pkmn.push(pokemon))
+        .catch(error => console.log('error', error))
     }
   },
   /* methods: {

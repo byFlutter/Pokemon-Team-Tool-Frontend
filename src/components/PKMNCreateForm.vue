@@ -5,10 +5,10 @@
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <h5 id="offcanvas-label">Füge ein neues Pokemon hinzu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <form class="needs-validation text-start" novalidate>
+      <form class="needs-validation text-start" id="pkmn-create-form" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
@@ -43,8 +43,15 @@
             </label>
           </div>
         </div>
+        <div v-if="this.serverValidationMessages">
+          <ul>
+            <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
+              {{ message }}
+            </li>
+          </ul>
+        </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click="createPokemon">Create</button>
+          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Create</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
       </form>
@@ -60,11 +67,13 @@ export default {
       name: '',
       region: '',
       // gender: '',
-      evolved: false
+      evolved: false,
+      serverValidationMessages: []
     }
   },
+  emits: ['created'],
   methods: {
-    createPokemon () {
+    async createPokemon () {
       console.log(this.name)
       console.log(this.region)
       // console.log(this.gender)
@@ -72,9 +81,11 @@ export default {
 
       if (this.validate()) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
+
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
-        const payload = JSON.stringify({
+
+        const pokemon = JSON.stringify({
           name: this.name,
           region: this.region,
           evolved: this.evolved
@@ -83,29 +94,33 @@ export default {
         const requestOptions = {
           method: 'POST',
           headers: headers,
-          body: payload,
+          body: pokemon,
           redirect: 'follow'
         }
         fetch(endpoint, requestOptions)
           .then(response => response.text())
           .catch(error => console.log('error', error))
+        const response = await fetch(endpoint, requestOptions)
+        await this.handleResponse(response)
+      }
+    },
+    async handleResponse (response) {
+      if (response.ok) {
+        this.$emit('created', response.headers.get('location'))
+        document.getElementById('close-offcanvas').click()
+      } else if (response.status === 400) {
+        response = await response.json()
+        response.errors.forEach(error => {
+          this.serverValidationMessages.push(error.defaultMessage)
+        })
+      } else {
+        this.serverValidationMessages.push('Unknown error occurred')
       }
     },
     validate () {
-      let valid = true
-      const forms = document.querySelectorAll('.needs-validation')
-      Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-              valid = false
-            }
-            form.classList.add('was-validated')
-          }, false)
-        })
-      return valid
+      const form = document.getElementById('pkmn-create-form')
+      form.classList.add('was-validated')
+      return form.checkValidity()
     }
   }
 }
