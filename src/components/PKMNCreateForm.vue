@@ -1,14 +1,14 @@
 <template>
-  <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas" aria-controls="#pkmn-create-offcanvas">
+  <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#p-k-m-n-create-offcanvas" aria-controls="#p-k-m-n-create-offcanvas">
     <i class="bi bi-pokemon-plus-fill"></i>
   </button>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="p-k-m-n-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <h5 id="offcanvas-label">Füge ein neues Pokemon hinzu</h5>
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <form class="needs-validation text-start" id="pkmn-create-form" novalidate>
+      <form class="needs-validation text-start" id="p-k-m-n-create-form" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
@@ -118,7 +118,7 @@ export default {
       }
     },
     validate () {
-      const form = document.getElementById('pkmn-create-form')
+      const form = document.getElementById('p-k-m-n-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
     }
