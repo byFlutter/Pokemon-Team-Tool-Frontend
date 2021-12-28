@@ -8,7 +8,7 @@
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <form class="text-start needs-validation" id="pkmn-create-form" novalidate>
+      <form class="text-start needs-validation" id="p-k-m-n-create-form" novalidate>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
