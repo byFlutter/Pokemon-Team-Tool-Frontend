@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Pokeball Logo" width="300" src="../assets/pokeball.png">
-    <HelloWorld msg="Welcome to the World of Pokémon! "/>
+    <img alt="Pokeball Logo" width="200" src="../assets/pokeball.png">
+    <HelloWorld msg="Willkommen in der Welt der Pokémon!" style="color: whitesmoke"/>
   </div>
 </template>
 
@@ -17,11 +17,11 @@ export default {
 }
 </script>
 
-<!--<style>-->
-<!--body {-->
-<!--  background-image: url('../assets/background.png');-->
-<!--  background-repeat: no-repeat;-->
-<!--  background-attachment: fixed;-->
-<!--  background-size: cover;-->
-<!--}-->
-<!--</style>-->
+<style>
+body {
+  background-image: url('../assets/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>

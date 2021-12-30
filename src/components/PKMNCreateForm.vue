@@ -51,8 +51,8 @@
           </ul>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Create</button>
-          <button class="btn btn-danger" type="reset">Reset</button>
+          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Hinzufügen</button>
+          <button class="btn btn-danger" type="reset">Löschen</button>
         </div>
       </form>
     </div>
@@ -97,9 +97,9 @@ export default {
           body: pokemon,
           redirect: 'follow'
         }
-        fetch(endpoint, requestOptions)
+        /* fetch(endpoint, requestOptions)
           .then(response => response.text())
-          .catch(error => console.log('error', error))
+          .catch(error => console.log('error', error)) */
         const response = await fetch(endpoint, requestOptions)
         await this.handleResponse(response)
       }
