@@ -1,6 +1,6 @@
 <template>
   <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas" aria-controls="#pkmn-create-offcanvas">
-    <i class="bi bi-pokemon-plus-fill"></i>
+    <i class="bi bi-pokemon-plus-fill"></i>Pokémon hinzufügen
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
@@ -13,14 +13,14 @@
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" v-model="name" required>
           <div class="invalid-feedback">
-            Bitte gib den Namen des Pokemon an.
+            Bitte gib den Namen des Pokémon an.
           </div>
         </div>
         <div class="mb-3">
           <label for="region" class="form-label">Region</label>
           <input type="text" class="form-control" id="region" v-model="region" required>
           <div class="invalid-feedback">
-            Bitte gib die Region des Pokemon an.
+            Bitte gib die Region des Pokémon an.
           </div>
         </div>
 <!--        <div class="mb-3">
@@ -32,7 +32,7 @@
             <option value="DIVERSE">Diverse</option>
           </select>
           <div class="invalid-feedback">
-            Bitte gib das Geschlecht des Pokemon an.
+            Bitte gib das Geschlecht des Pokémon an.
           </div>
         </div>-->
         <div class="mb-3">
@@ -74,11 +74,11 @@ export default {
   emits: ['created'],
   methods: {
     async createPokemon () {
-      console.log(this.name)
+      /* console.log(this.name)
       console.log(this.region)
       // console.log(this.gender)
       console.log(this.evolved)
-
+*/
       if (this.validate()) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
 
