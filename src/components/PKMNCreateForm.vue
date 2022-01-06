@@ -1,11 +1,13 @@
 <template>
-  <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas" aria-controls="#pkmn-create-offcanvas">
+  <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas"
+          aria-controls="#pkmn-create-offcanvas">
     <i class="bi bi-pokemon-plus-fill"></i>Pokémon hinzufügen
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
-      <h5 id="offcanvas-label">Füge ein neues Pokemon hinzu</h5>
-      <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <h5 id="offcanvas-label">Füge ein neues Pokémon hinzu</h5>
+      <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <form class="text-start needs-validation" id="pkmn-create-form" novalidate>
@@ -23,18 +25,33 @@
             Bitte gib die Region des Pokémon an.
           </div>
         </div>
-<!--        <div class="mb-3">
-          <label for="gender" class="form-label">Gender</label>
-          <select id="gender" class="form-select" v-model="gender" required>
-            <option value="" selected disabled>Choose...</option>
-            <option value="MALE">Male</option>
-            <option value="FEMALE">Female</option>
-            <option value="DIVERSE">Diverse</option>
+        <div class="mb-3">
+          <label for="type" class="form-label">Typ</label>
+          <select id="type" class="form-select" v-model="type" required>
+            <option value="" selected disabled>Wähle...</option>
+            <option value="Normal">Normal</option>
+            <option value="Feuer">Feuer</option>
+            <option value="Wasser">Wasser</option>
+            <option value="Pflanze">Pflanze</option>
+            <option value="Elektro">Elektro</option>
+            <option value="Eis">Eis</option>
+            <option value="Kampf">Kampf</option>
+            <option value="Gift">Gift</option>
+            <option value="Boden">Boden</option>
+            <option value="Flug">Flug</option>
+            <option value="Psycho">Psycho</option>
+            <option value="Kaefer">Käfer</option>
+            <option value="Gestein">Gestein</option>
+            <option value="Geist">Geist</option>
+            <option value="Drache">Drache</option>
+            <option value="Unlicht">Unlicht</option>
+            <option value="Stahl">Stahl</option>
+            <option value="Fee">Fee</option>
           </select>
           <div class="invalid-feedback">
-            Bitte gib das Geschlecht des Pokémon an.
+            Bitte gib den Typ des Pokémon an.
           </div>
-        </div>-->
+        </div>
         <div class="mb-3">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="evolved" v-model="evolved">
@@ -66,7 +83,7 @@ export default {
     return {
       name: '',
       region: '',
-      // gender: '',
+      type: '',
       evolved: false,
       serverValidationMessages: []
     }
@@ -74,11 +91,10 @@ export default {
   emits: ['created'],
   methods: {
     async createPokemon () {
-      /* console.log(this.name)
+      console.log(this.name)
       console.log(this.region)
-      // console.log(this.gender)
+      console.log(this.type)
       console.log(this.evolved)
-*/
       if (this.validate()) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
 
@@ -88,8 +104,8 @@ export default {
         const pokemon = JSON.stringify({
           name: this.name,
           region: this.region,
-          evolved: this.evolved
-          // , gender: this.gender
+          evolved: this.evolved,
+          type: this.type
         })
         const requestOptions = {
           method: 'POST',
