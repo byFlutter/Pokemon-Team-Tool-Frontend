@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body text-success">
-          <h5 class="card-title">{{ pokemon.name }}</h5>
+          <h5 class="card-title">{{ pokemon.name }} - Lvl {{ pokemon.level }}</h5>
           <p class="card-text">
             {{ pokemon.name }} ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }} und
             entstammt der Region {{ pokemon.region }}. Es gehört dem Typ {{pokemon.type}} an.

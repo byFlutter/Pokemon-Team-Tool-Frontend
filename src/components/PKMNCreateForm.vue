@@ -26,6 +26,13 @@
           </div>
         </div>
         <div class="mb-3">
+          <label for="level" class="form-label">Level</label>
+          <input type="text" class="form-control" id="level" v-model="level" required>
+          <div class="invalid-feedback">
+            Bitte gib das Level des Pokémon an.
+          </div>
+        </div>
+        <div class="mb-3">
           <label for="type" class="form-label">Typ</label>
           <select id="type" class="form-select" v-model="type" required>
             <option value="" selected disabled>Wähle...</option>
@@ -83,6 +90,7 @@ export default {
     return {
       name: '',
       region: '',
+      level: '',
       type: '',
       evolved: false,
       serverValidationMessages: []
@@ -93,6 +101,7 @@ export default {
     async createPokemon () {
       console.log(this.name)
       console.log(this.region)
+      console.log(this.level)
       console.log(this.type)
       console.log(this.evolved)
       if (this.validate()) {
@@ -104,6 +113,7 @@ export default {
         const pokemon = JSON.stringify({
           name: this.name,
           region: this.region,
+          level: this.level,
           evolved: this.evolved,
           type: this.type
         })
