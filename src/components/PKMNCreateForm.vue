@@ -67,6 +67,13 @@
             </label>
           </div>
         </div>
+        <div class="mb-3">
+          <label for="team" class="form-label">Team-ID</label>
+          <input type="text" class="form-control" id="team" v-model="team" required>
+          <div class="invalid-feedback">
+            Bitte gib die Team-ID des Pokémon an.
+          </div>
+        </div>
         <div v-if="this.serverValidationMessages">
           <ul>
             <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -92,6 +99,7 @@ export default {
       region: '',
       level: '',
       type: '',
+      team: '',
       evolved: false,
       serverValidationMessages: []
     }
@@ -103,6 +111,7 @@ export default {
       console.log(this.region)
       console.log(this.level)
       console.log(this.type)
+      console.log(this.team)
       console.log(this.evolved)
       if (this.validate()) {
         const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
@@ -115,7 +124,8 @@ export default {
           region: this.region,
           level: this.level,
           evolved: this.evolved,
-          type: this.type
+          type: this.type,
+          team: this.team
         })
         const requestOptions = {
           method: 'POST',

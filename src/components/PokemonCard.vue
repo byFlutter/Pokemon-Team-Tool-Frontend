@@ -4,14 +4,20 @@
       <div class="col-md-4">
         <img :src="getArtwork(pokemon)" class="card-img-top" :alt="pokemon.name">
       </div>
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          Featured-->
+<!--        </div>-->
       <div class="col-md-8">
         <div class="card-body text-success">
-          <h5 class="card-title">{{ pokemon.name }} - Lvl {{ pokemon.level }}</h5>
+          <h5 class="card-title">{{ pokemon.name }} - Lvl {{ pokemon.level }} - ID {{ pokemon.id}}</h5>
           <p class="card-text">
             {{ pokemon.name }} ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }} und
             entstammt der Region {{ pokemon.region }}. Es gehört dem Typ {{pokemon.type}} an.
+            ----- Team Name: {{ pokemon.team.name }}
           </p>
         </div>
+<!--      </div>-->
       </div>
     </div>
   </div>
