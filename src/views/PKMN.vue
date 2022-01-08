@@ -1,5 +1,7 @@
 <template>
+  <div class="pkmn">
   <h1>Meine Pokémon </h1>
+  </div>
   <div class="container-fluid">
 <!--    <div class="row row-cols-1 row-cols-md-4 g-4">
       <div class="col" v-for="pokemon in pkmn" :key="pokemon.id">
@@ -88,5 +90,9 @@ export default {
 </script>
 
 <style scoped>
+
+.pkmn {
+  color: whitesmoke;
+}
 
 </style>
