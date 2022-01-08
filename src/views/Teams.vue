@@ -3,54 +3,53 @@
     <h1>Meine Teams</h1>
   </div>
   <div class="container-fluid">
-    <!--    <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>-->
+    <teams-card-list :teams="this.teams"></teams-card-list>
   </div>
-  <!--  <p-k-m-n-create-form> @created="addPokemon"</p-k-m-n-create-form>-->
+  <teams-create-form> @created="addTeam"</teams-create-form>
 </template>
 
 <script>
-// import PKMNCardList from '@/components/PKMNCardList'
-// import PKMNCreateForm from '@/components/PKMNCreateForm'
+import TeamsCardList from '@/components/TeamsCardList'
+import TeamsCreateForm from '@/components/TeamsCreateForm'
 
 export default {
   name: 'Teams',
   components: {
-    // PKMNCardList,
-    // PKMNCreateForm
+    TeamsCardList,
+    TeamsCreateForm
   },
   data () {
     return {
-      // teams: []
+      teams: []
     }
+  },
+  methods: {
+    addTeam (teamLocation) {
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + teamLocation
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      }
+      fetch(endpoint, requestOptions)
+        .then(response => response.json())
+        .then(team => this.teams.push(team))
+        .catch(error => console.log('error', error))
+    }
+  },
+  mounted () {
+    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/teams'
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    fetch(endpoint, requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(team => {
+        this.teams.push(team)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
-//   methods: {
-//     addPokemon (pokemonLocation) {
-//       const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + pokemonLocation
-//       const requestOptions = {
-//         method: 'GET',
-//         redirect: 'follow'
-//       }
-//       fetch(endpoint, requestOptions)
-//         .then(response => response.json())
-//         .then(pokemon => this.pkmn.push(pokemon))
-//         .catch(error => console.log('error', error))
-//     }
-//   },
-//   mounted () {
-//     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
-//     const requestOptions = {
-//       method: 'GET',
-//       redirect: 'follow'
-//     }
-//     fetch(endpoint, requestOptions)
-//       .then(response => response.json())
-//       .then(result => result.forEach(pokemon => {
-//         this.pkmn.push(pokemon)
-//       }))
-//       .catch(error => console.log('error', error))
-//   }
-// }
 
 </script>
 
