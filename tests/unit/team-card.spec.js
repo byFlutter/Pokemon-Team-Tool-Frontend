@@ -26,7 +26,7 @@ describe('Testing TeamCard.vue', () => {
     ${[]}               | ${'Diesem Team wurden noch keine Pokémon hinzugefügt.'}
     ${[{}]}             | ${'Zum Team gehören die Pokémon mit folgenden PokéDexNummern:'}
     ${[{}, {}]}         | ${'Zum Team gehören die Pokémon mit folgenden PokéDexNummern:'}
-  `('should render fitting string when team is empty or filled (team.pokemonIds[0])', ({ pokemonIds, expected }) => {
+  `('should render fitting string when team is empty or filled (team.pokemonIds)', ({ pokemonIds, expected }) => {
     // when
     const testTeam = {
       id: 2,
@@ -44,6 +44,24 @@ describe('Testing TeamCard.vue', () => {
     // then
     const cardTitle = wrapper.find('.card-title-two')
     expect(cardTitle.text()).toContain(`${expected}`)
+  })
+  it('should render pokemonIds count', () => {
+    // when
+    const wrapper = mount(TeamCard, {
+      propsData: {
+        team: {
+          id: 2,
+          name: 'Super Pokémon',
+          game: 'Pokémon Diamant',
+          type: 'Feuer',
+          pokemonIds: [1, 2, 3, 4, 5, 6]
+        }
+      }
+    })
+
+    // then
+    const cardTitle = wrapper.find('.card-title-two')
+    expect(cardTitle.text()).toContain('1 - 2 - 3 - 4 - 5 - 6')
   })
   it('should render name, game and type', () => {
     // when

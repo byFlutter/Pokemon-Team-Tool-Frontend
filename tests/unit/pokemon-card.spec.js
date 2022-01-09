@@ -22,33 +22,32 @@ describe('Testing PokemonCard.vue', () => {
     const cardTitle = wrapper.find('.card-title')
     expect(cardTitle.text()).toBe('Glurak - PokéDexNr: 1')
   })
-  // it('should render name and team dex nr', () => {
-  //   // when
-  //   const wrapper = mount(PokemonCard, {
-  //     propsData: {
-  //       pokemon: {
-  //         id: 1,
-  //         name: 'Glurak',
-  //         region: 'Kanto',
-  //         type: 'Feuer',
-  //         evolved: true,
-  //         level: 100
-  //         // team: [1, 'Super Pokemon', 'Pokémon Diamant', 'Feuer', [1]]
-  //       },
-  //       team: {
-  //         id: 1,
-  //         name: 'Super Pokemon',
-  //         game: 'Pokémon Diamant',
-  //         type: 'Feuer',
-  //         pokemonIds: [1]
-  //       }
-  //     }
-  //   })
-  //
-  //   // then
-  //   const cardTitle = wrapper.find('.card-title-two')
-  //   expect(cardTitle.text()).toBe('Team: Super Pokemon, DexNr: 1')
-  // })
+  it('should render name and team dex nr', () => {
+    // when
+    const wrapper = mount(PokemonCard, {
+      propsData: {
+        pokemon: {
+          id: 1,
+          name: 'Glurak',
+          region: 'Kanto',
+          type: 'Feuer',
+          evolved: true,
+          level: 100,
+          team: {
+            id: 2,
+            name: 'Super Pokemon',
+            game: 'Pokémon Diamant',
+            type: 'Feuer',
+            pokemonIds: [1]
+          }
+        }
+      }
+    })
+
+    // then
+    const cardTitle = wrapper.find('.card-title-two')
+    expect(cardTitle.text()).toBe('Team: Super Pokemon, DexNr: 2')
+  })
 
   it('should render pokemon data', () => {
     // when
