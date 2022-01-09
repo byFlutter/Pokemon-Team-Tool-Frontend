@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Teams from '../views/Teams.vue'
 import PKMN from '../views/PKMN.vue'
+import Help from '../views/Help.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/pkmn',
     name: 'PKMN',
     component: PKMN
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: Help
   }
 ]
 

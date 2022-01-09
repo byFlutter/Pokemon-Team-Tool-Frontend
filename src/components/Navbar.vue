@@ -13,6 +13,7 @@
           <router-link class="nav-link" to="/about">About</router-link>
           <router-link class="nav-link" to="/teams">TeamDex</router-link>
           <router-link class="nav-link" to="/pkmn">PokéDex</router-link>
+          <router-link class="nav-link" to="/help">Help</router-link>
         </div>
       </div>
     </div>
