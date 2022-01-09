@@ -2,7 +2,7 @@
   <div class="card text-dark bg-light mb-3 card border-success mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img :src="getArtwork(pokemon)" class="card-img-top" :alt="pokemon.name">
+        <img :src="getArtwork(pokemon)" style="padding-top: 25px; padding-bottom: 10px; padding-left: 15px"  width="160" height="160" class="card-img-top" :alt="pokemon.name">
       </div>
 <!--      <div class="card">-->
 <!--        <div class="card-header">-->
@@ -12,7 +12,7 @@
         <div class="card-body text-success">
           <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}} </h5>
           <h6 class="card-title-two">
-            Team Name: {{ pokemon.team.name }} <br> </h6>
+            Team: {{ pokemon.team.name }}, DexNr: {{ pokemon.team.id }} <br> </h6>
           <p class="card-text">
             {{ pokemon.name }} stammt aus der Region {{ pokemon.region }} und befindet sich
             auf Level {{ pokemon.level }}. Es gehört dem Typ {{pokemon.type}} an und

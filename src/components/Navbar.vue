@@ -11,8 +11,8 @@
         <div class="navbar-nav">
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/about">About</router-link>
-          <router-link class="nav-link" to="/teams">Teams</router-link>
-          <router-link class="nav-link" to="/pkmn">PKMN</router-link>
+          <router-link class="nav-link" to="/teams">TeamDex</router-link>
+          <router-link class="nav-link" to="/pkmn">PokéDex</router-link>
         </div>
       </div>
     </div>

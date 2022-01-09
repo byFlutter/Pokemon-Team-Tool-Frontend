@@ -2,7 +2,7 @@
   <div class="about">
     <img alt="Pokeball Logo" width="200" src="../assets/pokeball.png">
     <h1>Deine Pokémon warten schon auf dich!</h1>
-    <h4> &nbsp; Füge Pokémon hinzu, <br> &nbsp; &nbsp; speichere nützliche Informationen. </h4>
+    <h4> &nbsp; Erstelle ein Team und <br> &nbsp; &nbsp; füge anschließend Pokémon hinzu. </h4>
     <h3>Nutze jetzt das Pokémon Team Tool!</h3> <br>
     <a class="btn btn-success" href="https://pokemon-team-tool-frontend.herokuapp.com/teams"
        style="border-radius:30px; padding-left: 40px; padding-right: 40px" role="button"> <b> Team erstellen </b> </a> &nbsp;

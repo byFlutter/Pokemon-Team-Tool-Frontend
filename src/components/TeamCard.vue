@@ -2,7 +2,7 @@
   <div class="card text-dark bg-light mb-3 card border-success mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img :src="getArtwork(team)"  class="card-img-top" :alt="team.name">
+        <img :src="getArtwork(team)" style="padding-top: 55px; padding-left: 15px"  width="160" height="175" class="card-img-top" :alt="team.name">
       </div>
       <div class="col-md-8">
         <div class="card-body text-success">
