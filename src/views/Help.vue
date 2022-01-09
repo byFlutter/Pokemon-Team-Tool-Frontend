@@ -22,11 +22,12 @@
       Herkunftsregion, das Level, den Typ und die Wahl, ob das Pokémon entwickelt wurde. <br>
       Die TeamDexNummer bestimmt dabei das Team, welchem du das Pokémon hinzufügst. <br>
       Nach dem Erstellen kannst du deine Pokémon im PokéDex einsehen - ebenso wie die Pokémon <br>
-      anderer Spieler aus aller Welt! <br>
+      anderer Spieler aus aller Welt! <br> <br>
 
       Zum Wechseln zwischen den Seiten Home, About, dem TeamDex und dem PokéDex lässt sich die <br>
       vorhandene Navbar nutzen. Ebenso besteht die Möglichkeit, sich von den Buttons auf der <br>
-      Homepage und der Seite About als Option zum einfachen Einstieg in das Tool leiten zu lassen. <br> <br>
+      Homepage und der Seite About als Option zum einfachen Einstieg in das Tool leiten zu lassen. <br>
+      Auch über das Logo des Pokémon Team Tools als Teil der Navbar gelangst du jederzeit zum Home-Menü.<br> <br>
       Alternativ steht dir diese Help-Page als Hilfe zur Seite. <br> <br>
       Nun steht der Kreation deiner eigenen Teams nichts mehr im Weg! <br>
       Die Welt der Pokémon wartet schon auf dich.</h4> <br>
