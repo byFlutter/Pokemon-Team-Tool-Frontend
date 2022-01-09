@@ -7,6 +7,11 @@
     <a class="btn btn-success" href="https://pokemon-team-tool-frontend.herokuapp.com/about"
        style="border-radius:30px; padding-left: 50px; padding-right: 50px" role="button"> <b> Los geht's! </b> </a>
   </div>
+  <div class="footer">
+    <footer>
+      Pokémon is © of Nintendo, 1995-2022
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -31,4 +36,10 @@ body {
   padding-top: 20px;
   color: whitesmoke
 }
+
+.footer {
+  color: whitesmoke;
+  padding-top: 100px;
+}
+
 </style>

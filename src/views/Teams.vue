@@ -7,6 +7,11 @@
     <teams-card-list :teams="this.teams"></teams-card-list>
   </div>
   <teams-create-form @created="addTeam"></teams-create-form>
+  <div class="footer2">
+    <footer>
+      Pokémon is © of Nintendo, 1995-2022
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -59,6 +64,10 @@ export default {
 .teams {
   color: whitesmoke;
   padding-top: 20px
+}
+
+.footer2 {
+  color: whitesmoke;
 }
 
 </style>

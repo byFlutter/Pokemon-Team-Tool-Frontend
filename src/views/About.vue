@@ -9,11 +9,17 @@
     <a class="btn btn-success" href="https://pokemon-team-tool-frontend.herokuapp.com/pkmn"
        style="border-radius:30px" role="button"> <b> Pokémon hinzufügen </b> </a>
   </div>
+  <div class="footer">
+    <footer>
+      Pokémon is © of Nintendo, 1995-2022
+    </footer>
+  </div>
 </template>
 
 <style>
 .about {
-  padding-top: 20px;
+  padding-top: 10px;
   color: whitesmoke;
 }
+
 </style>

@@ -7,6 +7,11 @@
     <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>
   </div>
   <p-k-m-n-create-form @created="addPokemon"></p-k-m-n-create-form>
+  <div class="footer2">
+    <footer>
+      Pokémon is © of Nintendo, 1995-2022
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -58,6 +63,10 @@ export default {
 .pkmn {
   color: whitesmoke;
   padding-top: 20px
+}
+
+.footer2 {
+  color: whitesmoke;
 }
 
 </style>
