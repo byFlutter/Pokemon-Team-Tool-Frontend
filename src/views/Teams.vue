@@ -1,6 +1,7 @@
 <template>
   <div class="teams">
-    <h1>Meine Teams</h1>
+    <h1>Erstelle dein eigenes Team </h1>
+    <h3> und betrachte Teams anderer Spieler</h3> <br>
   </div>
   <div class="container-fluid">
     <teams-card-list :teams="this.teams"></teams-card-list>
@@ -57,6 +58,7 @@ export default {
 
 .teams {
   color: whitesmoke;
+  padding-top: 20px
 }
 
 </style>

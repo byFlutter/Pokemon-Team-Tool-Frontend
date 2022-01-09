@@ -10,11 +10,13 @@
 <!--        </div>-->
       <div class="col-md-8">
         <div class="card-body text-success">
-          <h5 class="card-title">{{ pokemon.name }} - Lvl {{ pokemon.level }} - ID {{ pokemon.id}}</h5>
+          <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}} </h5>
+          <h6 class="card-title-two">
+            Team Name: {{ pokemon.team.name }} <br> </h6>
           <p class="card-text">
-            {{ pokemon.name }} ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }} und
-            entstammt der Region {{ pokemon.region }}. Es gehört dem Typ {{pokemon.type}} an.
-            ----- Team Name: {{ pokemon.team.name }}
+            {{ pokemon.name }} stammt aus der Region {{ pokemon.region }} und befindet sich
+            auf Level {{ pokemon.level }}. Es gehört dem Typ {{pokemon.type}} an und
+            ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }}.
           </p>
         </div>
 <!--      </div>-->

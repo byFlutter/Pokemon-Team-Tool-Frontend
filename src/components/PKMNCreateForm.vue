@@ -1,11 +1,11 @@
 <template>
   <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#pkmn-create-offcanvas"
           aria-controls="#pkmn-create-offcanvas">
-    <i class="bi bi-pokemon-plus-fill"></i>Pokémon hinzufügen
+    <i class="bi bi-pokemon-plus-fill"></i> <b> Pokémon hinzufügen </b>
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="pkmn-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
-      <h5 id="offcanvas-label">Füge ein neues Pokémon hinzu</h5>
+      <h5 id="offcanvas-label"> <b> Füge ein neues Pokémon hinzu </b> </h5>
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
     </div>
@@ -16,6 +16,13 @@
           <input type="text" class="form-control" id="name" v-model="name" required>
           <div class="invalid-feedback">
             Bitte gib den Namen des Pokémon an.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="team" class="form-label">TeamDexNummer</label>
+          <input type="text" class="form-control" id="team" v-model="team" required>
+          <div class="invalid-feedback">
+            Bitte gib die TeamDexNummer des Pokémon an.
           </div>
         </div>
         <div class="mb-3">
@@ -67,13 +74,6 @@
             </label>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="team" class="form-label">Team-ID</label>
-          <input type="text" class="form-control" id="team" v-model="team" required>
-          <div class="invalid-feedback">
-            Bitte gib die Team-ID des Pokémon an.
-          </div>
-        </div>
         <div v-if="this.serverValidationMessages">
           <ul>
             <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -82,8 +82,8 @@
           </ul>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createPokemon">Hinzufügen</button>
-          <button class="btn btn-danger" type="reset">Löschen</button>
+          <button class="btn btn-success me-3" type="submit" @click.prevent="createPokemon">Hinzufügen</button>
+          <button class="btn btn-secondary" type="reset">Löschen</button>
         </div>
       </form>
     </div>

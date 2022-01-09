@@ -1,6 +1,7 @@
 <template>
   <div class="pkmn">
-  <h1>Meine Pokémon </h1>
+    <h1>Füge deine Pokémon hinzu </h1>
+    <h3> und betrachte Pokémon anderer Spieler</h3> <br>
   </div>
   <div class="container-fluid">
 <!--    <div class="row row-cols-1 row-cols-md-4 g-4">
@@ -93,6 +94,7 @@ export default {
 
 .pkmn {
   color: whitesmoke;
+  padding-top: 20px
 }
 
 </style>

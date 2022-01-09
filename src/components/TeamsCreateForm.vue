@@ -1,11 +1,11 @@
 <template>
   <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#teams-create-offcanvas"
           aria-controls="#teams-create-offcanvas">
-    <i class="bi bi-teams-plus-fill"></i>Team hinzufügen
+    <i class="bi bi-teams-plus-fill"></i> <b> Team erstellen </b>
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="teams-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
-      <h5 id="offcanvas-label">Füge ein neues Team hinzu</h5>
+      <h5 id="offcanvas-label"> <b> Erstelle ein neues Team </b> </h5>
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
     </div>
@@ -60,8 +60,8 @@
           </ul>
         </div>
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createTeam">Hinzufügen</button>
-          <button class="btn btn-danger" type="reset">Löschen</button>
+          <button class="btn btn-success me-3" type="submit" @click.prevent="createTeam">Hinzufügen</button>
+          <button class="btn btn-secondary" type="reset">Löschen</button>
         </div>
       </form>
     </div>
@@ -134,6 +134,8 @@ export default {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
+  padding-left: 40px;
+  padding-right: 40px;
   border-radius: 30px;
 }
 </style>
