@@ -46,7 +46,7 @@ describe('Testing PokemonCard.vue', () => {
 
     // then
     const cardTitle = wrapper.find('.card-title-two')
-    expect(cardTitle.text()).toBe('Team: Super Pokemon, DexNr: 2')
+    expect(cardTitle.text()).toBe('Team: Super Pokemon, TeamDexNr: 2')
   })
 
   it('should render pokemon data', () => {

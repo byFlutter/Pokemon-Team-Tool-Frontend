@@ -8,7 +8,7 @@
         <div class="card-body text-success">
           <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}}</h5>
           <h6 class="card-title-two">
-            Team: {{ pokemon.team.name }}, DexNr: {{ pokemon.team.id }} <br> </h6>
+            Team: {{ pokemon.team.name }}, TeamDexNr: {{ pokemon.team.id }} <br> </h6>
           <p class="card-text">
             {{ pokemon.name }} stammt aus der Region {{ pokemon.region }} und befindet sich
             auf Level {{ pokemon.level }}. Es gehört dem Typ {{pokemon.type}} an und
