@@ -133,9 +133,6 @@ export default {
           body: pokemon,
           redirect: 'follow'
         }
-        /* fetch(endpoint, requestOptions)
-          .then(response => response.text())
-          .catch(error => console.log('error', error)) */
         const response = await fetch(endpoint, requestOptions)
         await this.handleResponse(response)
       }

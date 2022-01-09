@@ -4,10 +4,6 @@
       <div class="col-md-4">
         <img :src="getArtwork(pokemon)" style="padding-top: 25px; padding-bottom: 10px; padding-left: 15px"  width="160" height="160" class="card-img-top" :alt="pokemon.name">
       </div>
-<!--      <div class="card">-->
-<!--        <div class="card-header">-->
-<!--          Featured-->
-<!--        </div>-->
       <div class="col-md-8">
         <div class="card-body text-success">
           <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}}</h5>
@@ -19,7 +15,6 @@
             ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }}.
           </p>
         </div>
-<!--      </div>-->
       </div>
     </div>
   </div>
@@ -56,12 +51,10 @@ export default {
         return require('../assets/mew.png')
       } else if (pokemon.name === 'Mewtu') {
         return require('../assets/mewtu.png')
-      } else if (pokemon.name === 'Lucario') {
-        return require('../assets/lucario.png')
       } else if (pokemon.name === 'Arceus') {
         return require('../assets/arceus.png')
       } else {
-        return require('../assets/pokeball.png')
+        return require('../assets/pokeball2.webp')
       }
     }
   }
