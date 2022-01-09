@@ -7,7 +7,7 @@ describe('Testing TeamCard.vue', () => {
     const wrapper = mount(TeamCard, {
       propsData: {
         team: {
-          id: 1,
+          id: 2,
           name: 'Super Pokémon',
           game: 'Pokémon Diamant',
           type: 'Feuer',
@@ -18,7 +18,7 @@ describe('Testing TeamCard.vue', () => {
 
     // then
     const cardTitle = wrapper.find('.card-title')
-    expect(cardTitle.text()).toBe('Super Pokémon - TeamDexNr: 1')
+    expect(cardTitle.text()).toBe('Super Pokémon - TeamDexNr: 2')
   })
 
   it.each`
@@ -29,7 +29,7 @@ describe('Testing TeamCard.vue', () => {
   `('should render fitting string when team is empty or filled (team.pokemonIds[0])', ({ pokemonIds, expected }) => {
     // when
     const testTeam = {
-      id: 1,
+      id: 2,
       name: 'Super Pokémon',
       game: 'Pokémon Diamant',
       type: 'Feuer',
@@ -50,7 +50,7 @@ describe('Testing TeamCard.vue', () => {
     const wrapper = mount(TeamCard, {
       propsData: {
         team: {
-          id: 1,
+          id: 2,
           name: 'Super Pokémon',
           game: 'Pokémon Diamant',
           type: 'Feuer',

@@ -9,14 +9,14 @@ describe('Testing TeamsCardList.vue', () => {
       propsData: {
         teams: [
           {
-            id: 1,
+            id: 2,
             name: 'Super Team',
             game: 'Pokémon Diamant',
             type: 'Feuer',
             pokemonIds: []
           },
           {
-            id: 2,
+            id: 31,
             name: 'Legendäre Pokémon',
             game: 'Pokémon GO',
             type: 'Wasser',

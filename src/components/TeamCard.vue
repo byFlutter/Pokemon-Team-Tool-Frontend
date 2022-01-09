@@ -34,7 +34,7 @@ export default {
   methods: {
     getArtwork (team) {
       if (team.id === 1 || team.id === 11 || team.id === 21) {
-        return require('../assets/pokeball2.webp')
+        return require('../assets/pokeballzwei.webp')
       } else if (team.id === 2 || team.id === 12 || team.id === 22) {
         return require('../assets/superball.png')
       } else if (team.id === 3 || team.id === 13 || team.id === 23) {
@@ -54,7 +54,7 @@ export default {
       } else if (team.id === 10 || team.id === 20 || team.id === 30) {
         return require('../assets/heilball.webp')
       } else {
-        return require('../assets/pokeball2.webp')
+        return require('../assets/pokeball.png')
       }
     }
   }
