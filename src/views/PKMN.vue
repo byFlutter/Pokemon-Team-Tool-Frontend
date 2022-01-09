@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>
   </div>
-  <p-k-m-n-create-form> @created="addPokemon"</p-k-m-n-create-form>
+  <p-k-m-n-create-form @created="addPokemon"></p-k-m-n-create-form>
 </template>
 
 <script>

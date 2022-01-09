@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <teams-card-list :teams="this.teams"></teams-card-list>
   </div>
-  <teams-create-form> @created="addTeam"</teams-create-form>
+  <teams-create-form @created="addTeam"></teams-create-form>
 </template>
 
 <script>
