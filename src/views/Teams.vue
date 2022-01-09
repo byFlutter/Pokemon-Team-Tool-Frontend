@@ -1,6 +1,6 @@
 <template>
   <div class="teams">
-    <h1>Erstelle dein eigenes Team </h1>
+    <h1>Erstelle dein eigenes Team</h1>
     <h3> und betrachte Teams anderer Spieler</h3> <br>
   </div>
   <div class="container-fluid">

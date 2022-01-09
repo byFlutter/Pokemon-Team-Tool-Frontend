@@ -1,23 +1,9 @@
 <template>
   <div class="pkmn">
-    <h1>Füge deine Pokémon hinzu </h1>
+    <h1>Füge deine Pokémon hinzu</h1>
     <h3> und betrachte Pokémon anderer Spieler</h3> <br>
   </div>
   <div class="container-fluid">
-<!--    <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col" v-for="pokemon in pkmn" :key="pokemon.id">
-        <div class="card h-100">
-          <img :src="getArtwork(pokemon)" class="card-img-top" :alt="pokemon.name">
-          <div class="card-body">
-            <h5 class="card-title">{{ pokemon.name }}</h5>
-            <p class="card-text">
-              {{ pokemon.name }} ist {{ pokemon.evolved ? 'entwickelt' : 'nicht entwickelt' }} und
-              entstammt der Region {{ pokemon.region }}.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>-->
     <p-k-m-n-card-list :pkmn="this.pkmn"></p-k-m-n-card-list>
   </div>
   <p-k-m-n-create-form> @created="addPokemon"</p-k-m-n-create-form>
@@ -35,20 +21,6 @@ export default {
   },
   data () {
     return {
-      // pkmn: [
-      //   {
-      //     id: 1,
-      //     name: 'Glumanda',
-      //     region: 'Kanto',
-      //     evolved: false
-      //   },
-      //   {
-      //     id: 286,
-      //     name: 'Kapilz',
-      //     region: 'Hoenn',
-      //     evolved: true
-      //   }
-      // ]
       pkmn: []
     }
   },
@@ -65,15 +37,6 @@ export default {
         .catch(error => console.log('error', error))
     }
   },
-  /* methods: {
-    getArtwork (pokemon) {
-      if (pokemon.name === 'Glumanda') {
-        return require('../assets/glumanda.png')
-      } else if (pokemon.name === 'Kapilz') {
-        return require('../assets/kapilz.png')
-      }
-    }
-  }, */
   mounted () {
     const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + '/api/v1/allPokemon'
     const requestOptions = {

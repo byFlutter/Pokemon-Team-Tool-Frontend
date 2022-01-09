@@ -10,7 +10,7 @@
 <!--        </div>-->
       <div class="col-md-8">
         <div class="card-body text-success">
-          <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}} </h5>
+          <h5 class="card-title">{{ pokemon.name }} - PokéDexNr: {{ pokemon.id}}</h5>
           <h6 class="card-title-two">
             Team: {{ pokemon.team.name }}, DexNr: {{ pokemon.team.id }} <br> </h6>
           <p class="card-text">
